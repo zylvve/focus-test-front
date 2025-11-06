@@ -1,13 +1,28 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import TaskList from "./components/TaskList/TaskList"
+import { QueryClient } from "@tanstack/react-query"
+import { createAsyncStoragePersister } from "@tanstack/query-async-storage-persister"
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client"
+import MainArea from "./components/MainArea/MainArea"
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      gcTime: 1000 * 60 * 60 * 24, 
+    },
+  },
+})
+
+const persister = createAsyncStoragePersister({
+  storage: window.localStorage,
+})
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TaskList/>
-    </QueryClientProvider>
+    <PersistQueryClientProvider
+      client={queryClient}
+      persistOptions={{ persister }}
+    >
+      <MainArea/>
+    </PersistQueryClientProvider>
   )
 }
 
