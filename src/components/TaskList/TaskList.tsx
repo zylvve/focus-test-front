@@ -24,9 +24,10 @@ function TaskList({isPending, error, tasks}: TaskListProps) {
         <div className={styles.task_list}>
             <TaskListHeader/>
             {tasks
-                .filter((el: Task) => filterStatus === FilterStatus.ALL || filterStatus === el.status)
-                .map((el: Task) => (
-                    <TaskListRow key={el.id} title={el.title} description={el.description} status={el.status}/>
+                .filter((t: Task) => filterStatus === FilterStatus.ALL || filterStatus === t.status)
+                .sort((t1: Task, t2: Task) => t2.id - t1.id)
+                .map((t: Task) => (
+                    <TaskListRow key={t.id} id={t.id} title={t.title} description={t.description} status={t.status}/>
                 )
             )}
         </div>

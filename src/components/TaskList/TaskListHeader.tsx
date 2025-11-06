@@ -3,6 +3,7 @@ function TaskListHeader() {
         <div>Название</div>
         <div>Описание</div>
         <div>Статус</div>
+        <div></div>
     </>)
 }
 

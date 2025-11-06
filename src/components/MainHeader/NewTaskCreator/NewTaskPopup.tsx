@@ -37,7 +37,6 @@ function NewTaskPopup({ togglePopup }: NewTaskPopupProps) {
             description: formData.get('description') as string,
             status: FilterStatus.PENDING as string,
         })
-        console.log(formData.get('title'));
         togglePopup()
     };
 

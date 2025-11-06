@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FilterStatus, type FilterStatusType } from "../../types/filterStatus";
 import { FilterStatusContext } from "../context";
 
-function StatusSelector() {
+function FilterStatusSelector() {
     const context = useContext(FilterStatusContext);
     if (context === null) throw new Error('Context error');
     const { filterStatus, setFilterStatus } = context;
@@ -21,4 +21,4 @@ function StatusSelector() {
     )
 }
 
-export default StatusSelector
+export default FilterStatusSelector
