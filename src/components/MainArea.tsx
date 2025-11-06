@@ -4,7 +4,7 @@ import TaskList from "./TaskList/TaskList"
 import { FilterStatus, type FilterStatusType } from "../types/filterStatus";
 import { useQuery } from "@tanstack/react-query";
 import type { Task } from "../types/task";
-import { FilterStatusContext, TasksContext } from "./context";
+import { FilterStatusContext } from "./context";
 import { getTasks } from "../services/taskApiService";
 
 
@@ -25,14 +25,12 @@ function MainArea() {
     }, [data]);
 
     return (
-        <TasksContext value={{tasks, setTasks}}>
         <FilterStatusContext value={{filterStatus, setFilterStatus}}>
             <main>
                 <MainHeader/>
                 <TaskList tasks={tasks} isPending={isPending} error={error}/>
             </main>
         </FilterStatusContext>
-        </TasksContext>
     )
 }
 
