@@ -1,4 +1,4 @@
-import NewTaskButton from "./NewTaskButton"
+import NewTaskCreator from "./NewTaskCreator/NewTaskCreator"
 import StatusSelector from "./StatusSelector"
 
 function MainHeader() {
@@ -6,7 +6,7 @@ function MainHeader() {
         <header>
             <span>Планировщик задач</span>
             <StatusSelector/>
-            <NewTaskButton/>
+            <NewTaskCreator/>
         </header>
     )
 }

@@ -1,23 +1,18 @@
-import { useQuery } from "@tanstack/react-query"
 import TaskListHeader from "./TaskListHeader"
 import TaskListRow from "./TaskListRow"
 import styles from "./TaskList.module.css"
 import { useContext } from "react"
-import { FilterStatusContext } from "../MainArea/MainArea"
 import { FilterStatus } from "../../types/filterStatus"
 import type { Task } from "../../types/task"
+import { FilterStatusContext } from "../context"
 
-function TaskList() {
-    const { isPending, error, data } = useQuery({
-        queryKey: ['taskData'],
-        queryFn: async () => {
-            const response = await fetch(
-                'http://localhost:8000/tasks',
-            )
-            return await response.json()
-        },
-    })
-    
+type TaskListProps = {
+    isPending: boolean,
+    error: Error | null,
+    tasks: Task[],
+}
+
+function TaskList({isPending, error, tasks}: TaskListProps) {        
     const context = useContext(FilterStatusContext);
     if (context === null) throw new Error('Context error');
     const { filterStatus } = context;
@@ -28,7 +23,7 @@ function TaskList() {
     return (
         <div className={styles.task_list}>
             <TaskListHeader/>
-            {data
+            {tasks
                 .filter((el: Task) => filterStatus === FilterStatus.ALL || filterStatus === el.status)
                 .map((el: Task) => (
                     <TaskListRow key={el.id} title={el.title} description={el.description} status={el.status}/>

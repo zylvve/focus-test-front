@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { FilterStatusContext } from "../MainArea/MainArea";
 import { FilterStatus, type FilterStatusType } from "../../types/filterStatus";
+import { FilterStatusContext } from "../context";
 
 function StatusSelector() {
     const context = useContext(FilterStatusContext);
