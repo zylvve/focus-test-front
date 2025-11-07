@@ -31,9 +31,19 @@
     cursor: pointer;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .main_cell {
     border-top: 1px dashed var(--border-color);
+    animation: fadeIn 0.5s ease-in forwards;
 }
+
 @media (max-width: 768px) {
     .main_cell {
         border: none
