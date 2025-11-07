@@ -1,0 +1,12 @@
+.main {
+    margin: auto;
+    max-width: 90%;
+    width: 800px;
+    text-align: center;
+    
+    margin-top: 1rem;
+    padding: 1rem;
+
+    background-color: var(--primary-bg-color);
+    border: 2px solid var(--border-color);
+}

@@ -4,7 +4,7 @@ import styles from "./TaskList.module.css"
 import { useContext } from "react"
 import { FilterStatus } from "../../types/filterStatus"
 import type { Task } from "../../types/task"
-import { FilterStatusContext } from "../context"
+import { FilterStatusContext } from "../FilterStatusContext"
 
 type TaskListProps = {
     isPending: boolean,

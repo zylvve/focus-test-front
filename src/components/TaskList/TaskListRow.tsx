@@ -38,18 +38,21 @@ function TaskListRow(props: TaskListRowProps) {
 
     return (
         <>
-            <div>{props.title}</div>
-            <div>{props.description}</div>
-            <select 
-                className={styles.task_row_select}
-                value={status} 
-                onChange={handleStatusChange} 
-            >
-                <option value={FilterStatus.PENDING}>Не начато</option>
-                <option value={FilterStatus.IN_PROGRESS}>В процессе</option>
-                <option value={FilterStatus.DONE}>Выполнено</option>
-            </select>
-            {isDeleting ? <div>...</div> : <button onClick={handleDelete}>x</button>}
+            <div className={styles.title_column}>{props.title}</div>
+            <div className={styles.description_column}>{props.description}</div>
+            <div className={styles.select_column}>
+                <select 
+                    value={status} 
+                    onChange={handleStatusChange} 
+                >
+                    <option value={FilterStatus.PENDING}>Не начато</option>
+                    <option value={FilterStatus.IN_PROGRESS}>В процессе</option>
+                    <option value={FilterStatus.DONE}>Выполнено</option>
+                </select>
+            </div>
+            <div className={styles.delete_column}>
+                {isDeleting ? "..." : <button onClick={handleDelete}>x</button>}
+            </div>
         </>
     );
 }

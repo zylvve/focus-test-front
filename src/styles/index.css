@@ -1,0 +1,8 @@
+body {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    background-color: var(--secondary-bg-color);
+}
+
+select:hover, button:hover {
+    font-weight: bold;
+}

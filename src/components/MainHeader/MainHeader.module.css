@@ -1,0 +1,29 @@
+.header {
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+    
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.control_container {
+    height: 2rem;
+}
+
+.control_container select {
+    height: 100%;
+    background-color: var(--primary-bg-color);
+    outline: none;
+    border: none;
+    border-left: 2px solid var(--border-color);
+    border-right: 2px solid var(--border-color);
+    cursor: pointer;
+}
+.control_container button {
+    height: 100%;
+    background-color: var(--primary-bg-color);
+    outline: none;
+    border: none;
+    border-right: 2px solid var(--border-color);
+    cursor: pointer;
+}

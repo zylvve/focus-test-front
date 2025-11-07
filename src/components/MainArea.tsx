@@ -4,9 +4,9 @@ import TaskList from "./TaskList/TaskList"
 import { FilterStatus, type FilterStatusType } from "../types/filterStatus";
 import { useQuery } from "@tanstack/react-query";
 import type { Task } from "../types/task";
-import { FilterStatusContext } from "./context";
+import { FilterStatusContext } from "./FilterStatusContext";
 import { getTasks } from "../services/taskApiService";
-
+import styles from './MainArea.module.css'
 
 function MainArea() {
     const [filterStatus, setFilterStatus] = useState<FilterStatusType>(FilterStatus.ALL)
@@ -26,7 +26,7 @@ function MainArea() {
 
     return (
         <FilterStatusContext value={{filterStatus, setFilterStatus}}>
-            <main>
+            <main className={styles.main}>
                 <MainHeader/>
                 <TaskList tasks={tasks} isPending={isPending} error={error}/>
             </main>

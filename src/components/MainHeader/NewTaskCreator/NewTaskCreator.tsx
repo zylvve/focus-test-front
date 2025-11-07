@@ -10,7 +10,7 @@ function NewTaskCreator() {
 
     return (
         <>
-            <button onClick={togglePopup}>new task</button>
+            <button onClick={togglePopup}>Новое задание</button>
             {isOpen && <NewTaskPopup togglePopup={togglePopup}/>}
         </>
     )

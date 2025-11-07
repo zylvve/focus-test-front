@@ -3,10 +3,25 @@
     grid-template-columns: 200px 1fr 150px 50px;
 }
 
-.task_row_select {
-    appearance: none;
+.select_column select {
+    cursor: pointer;
     border: none;
     outline: none;
     background: none;
     padding: 0;
+}
+
+.title_column {
+    border-right: 2px solid var(--border-color);
+}
+
+.description_column {
+    border-right: 2px solid var(--border-color);
+}
+
+.delete_column button {
+    border: none;
+    background: none;
+    color: var(--color-special-1);
+    cursor: pointer;
 }
