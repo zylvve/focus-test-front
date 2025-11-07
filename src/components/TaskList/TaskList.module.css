@@ -2,6 +2,14 @@
     display: grid;
     grid-template-columns: 200px 1fr 150px 50px;
 }
+@media (max-width: 768px) {
+    .task_list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .title_column, .description_column {
+        grid-column: span 2;
+    }
+}
 
 .select_column select {
     cursor: pointer;
@@ -23,6 +31,20 @@
     cursor: pointer;
 }
 
-.with_separator {
+.main_cell {
     border-top: 1px dashed var(--border-color);
 }
+@media (max-width: 768px) {
+    .main_cell {
+        border: none
+    }
+    .title_column.main_cell {
+        border-top: 1px dashed var(--border-color);
+    }
+    
+    .header_cell {
+        display: none;
+    }
+}
+
+

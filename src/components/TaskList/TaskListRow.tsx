@@ -38,9 +38,9 @@ function TaskListRow(props: TaskListRowProps) {
 
     return (
         <>
-            <div className={`${styles.title_column} ${styles.with_separator}`}>{props.title}</div>
-            <div className={`${styles.description_column} ${styles.with_separator}`}>{props.description}</div>
-            <div className={`${styles.select_column} ${styles.with_separator}`}>
+            <div className={`${styles.title_column} ${styles.main_cell}`}>{props.title}</div>
+            <div className={`${styles.description_column} ${styles.main_cell}`}>{props.description}</div>
+            <div className={`${styles.select_column} ${styles.main_cell}`}>
                 <select 
                     value={status} 
                     onChange={handleStatusChange} 
@@ -50,7 +50,7 @@ function TaskListRow(props: TaskListRowProps) {
                     <option value={FilterStatus.DONE}>Выполнено</option>
                 </select>
             </div>
-            <div className={`${styles.delete_column} ${styles.with_separator}`}>
+            <div className={`${styles.delete_column} ${styles.main_cell}`}>
                 {isDeleting ? "..." : <button onClick={handleDelete}>x</button>}
             </div>
         </>
