@@ -35,6 +35,11 @@
 .title_column, .description_column {
     border-right: 2px solid var(--border-color);
 }
+@media (max-width: 768px) {
+    .title_column {
+        font-weight: bold;
+    }
+}
 
 
 .delete_column button {
