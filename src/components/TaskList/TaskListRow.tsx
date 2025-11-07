@@ -10,6 +10,7 @@ type TaskListRowProps = {
     title: string,
     description: string | null,
     status: string,
+    recheckPageNumOnDelete: () => void;
 }
 
 function TaskListRow(props: TaskListRowProps) {
@@ -33,6 +34,7 @@ function TaskListRow(props: TaskListRowProps) {
     
     const handleDelete = () => {
         mutationDelete.mutate(props.id);
+        props.recheckPageNumOnDelete();
         setIsDeleting(true);
     }
 

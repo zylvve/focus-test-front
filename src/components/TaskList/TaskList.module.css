@@ -1,6 +1,19 @@
 .task_list {
     display: grid;
+    width: 100%;
     grid-template-columns: 200px 1fr 150px 50px;
+}
+.task_list div {
+    width: 100%;
+    min-height: 3rem;
+    height: auto;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    overflow: hidden;
+    overflow-wrap: break-word;
 }
 @media (max-width: 768px) {
     .task_list {
@@ -28,6 +41,7 @@
     border: none;
     background: none;
     color: var(--color-special-1);
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
@@ -52,9 +66,21 @@
         border-top: 1px dashed var(--border-color);
     }
     
-    .header_cell {
+    .task_list .header_cell {
         display: none;
     }
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navigation button {
+    color: var(--color-special-2);
+    font-size: 2rem;
+    background: none;
+    border: none;
 }
 
 

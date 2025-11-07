@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import { FilterStatus, type FilterStatusType } from "../../types/filterStatus";
-import { FilterStatusContext } from "../FilterStatusContext";
+import { FilterStatusContext } from "../../context/FilterStatusContext";
+import { PaginationContext } from "../../context/PaginationContext";
 
 function FilterStatusSelector() {
-    const context = useContext(FilterStatusContext);
-    if (context === null) throw new Error('Context error');
-    const { filterStatus, setFilterStatus } = context;
+    const { filterStatus, setFilterStatus } = useContext(FilterStatusContext)!;
+    const { setPage } = useContext(PaginationContext)!;
     
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setFilterStatus(event.target.value as FilterStatusType);
+        setPage(1);
     };
 
     return (

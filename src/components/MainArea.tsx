@@ -4,12 +4,14 @@ import TaskList from "./TaskList/TaskList"
 import { FilterStatus, type FilterStatusType } from "../types/filterStatus";
 import { useQuery } from "@tanstack/react-query";
 import type { Task } from "../types/task";
-import { FilterStatusContext } from "./FilterStatusContext";
+import { FilterStatusContext } from "../context/FilterStatusContext";
 import { getTasks } from "../services/taskApiService";
 import styles from './MainArea.module.css'
+import { PaginationContext } from "../context/PaginationContext";
 
 function MainArea() {
     const [filterStatus, setFilterStatus] = useState<FilterStatusType>(FilterStatus.ALL)
+    const [page, setPage] = useState<number>(1);
 
     const { isPending, error, data } = useQuery({
         queryKey: ['taskData'],
@@ -26,10 +28,12 @@ function MainArea() {
 
     return (
         <FilterStatusContext value={{filterStatus, setFilterStatus}}>
+        <PaginationContext value={{page, setPage}}>
             <main className={styles.main}>
                 <MainHeader/>
-                <TaskList tasks={tasks} isPending={isPending} error={error}/>
+                <TaskList pageSize={15} tasks={tasks} isPending={isPending} error={error}/>
             </main>
+        </PaginationContext>
         </FilterStatusContext>
     )
 }

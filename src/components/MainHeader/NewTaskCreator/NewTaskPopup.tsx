@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { createTask } from "../../../services/taskApiService";
 import { queryClient } from "../../../App";
 import { FilterStatus } from "../../../types/filterStatus";
 import styles from "./NewTaskCreator.module.css"
+import { PaginationContext } from "../../../context/PaginationContext";
 
 type NewTaskPopupProps = {
     togglePopup: () => void,
@@ -29,6 +30,8 @@ function NewTaskPopup({ togglePopup }: NewTaskPopupProps) {
         mutationFn: createTask,
         onSettled: () => queryClient.invalidateQueries({ queryKey: ['taskData'] }),
     });
+        
+    const { setPage } = useContext(PaginationContext)!;
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         const formData = new FormData(event.currentTarget);
@@ -38,6 +41,7 @@ function NewTaskPopup({ togglePopup }: NewTaskPopupProps) {
             description: formData.get('description') as string,
             status: FilterStatus.PENDING as string,
         })
+        setPage(1);
         togglePopup()
     };
 
