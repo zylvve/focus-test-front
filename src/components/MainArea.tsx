@@ -31,7 +31,7 @@ function MainArea() {
         <PaginationContext value={{page, setPage}}>
             <main className={styles.main}>
                 <MainHeader/>
-                <TaskList pageSize={15} tasks={tasks} isPending={isPending} error={error}/>
+                <TaskList pageSize={10} tasks={tasks} isPending={isPending} error={error}/>
             </main>
         </PaginationContext>
         </FilterStatusContext>

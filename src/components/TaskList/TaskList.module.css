@@ -19,6 +19,9 @@
     .task_list {
         grid-template-columns: repeat(2, 1fr);
     }
+    .task_list div {
+        min-height: 0;
+    }
     .title_column, .description_column {
         grid-column: span 2;
     }
@@ -69,6 +72,9 @@
     }
     .title_column.main_cell {
         border-top: 1px dashed var(--border-color);
+    }
+    .status_column.main_cell, .delete_column.main_cell {
+        border-bottom: 1px dashed var(--border-color);
     }
     
     .task_list .header_cell {
