@@ -11,17 +11,18 @@
     padding: 0;
 }
 
-.title_column {
+.title_column, .description_column {
     border-right: 2px solid var(--border-color);
 }
 
-.description_column {
-    border-right: 2px solid var(--border-color);
-}
 
 .delete_column button {
     border: none;
     background: none;
     color: var(--color-special-1);
     cursor: pointer;
+}
+
+.with_separator {
+    border-top: 1px dashed var(--border-color);
 }

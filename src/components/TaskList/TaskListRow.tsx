@@ -18,11 +18,11 @@ function TaskListRow(props: TaskListRowProps) {
     
     const mutationUpdate = useMutation({
         mutationFn: updateTask,
-        onSuccess: () => queryClient.invalidateQueries({ queryKey: ['taskData'] }),
+        onSettled: () => queryClient.invalidateQueries({ queryKey: ['taskData'] }),
     });
     const mutationDelete = useMutation({
         mutationFn: deleteTask,
-        onSuccess: () => queryClient.invalidateQueries({ queryKey: ['taskData'] }),
+        onSettled: () => queryClient.invalidateQueries({ queryKey: ['taskData'] }),
     });
 
     const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -38,9 +38,9 @@ function TaskListRow(props: TaskListRowProps) {
 
     return (
         <>
-            <div className={styles.title_column}>{props.title}</div>
-            <div className={styles.description_column}>{props.description}</div>
-            <div className={styles.select_column}>
+            <div className={`${styles.title_column} ${styles.with_separator}`}>{props.title}</div>
+            <div className={`${styles.description_column} ${styles.with_separator}`}>{props.description}</div>
+            <div className={`${styles.select_column} ${styles.with_separator}`}>
                 <select 
                     value={status} 
                     onChange={handleStatusChange} 
@@ -50,7 +50,7 @@ function TaskListRow(props: TaskListRowProps) {
                     <option value={FilterStatus.DONE}>Выполнено</option>
                 </select>
             </div>
-            <div className={styles.delete_column}>
+            <div className={`${styles.delete_column} ${styles.with_separator}`}>
                 {isDeleting ? "..." : <button onClick={handleDelete}>x</button>}
             </div>
         </>

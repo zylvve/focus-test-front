@@ -3,6 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { createTask } from "../../../services/taskApiService";
 import { queryClient } from "../../../App";
 import { FilterStatus } from "../../../types/filterStatus";
+import styles from "./NewTaskCreator.module.css"
 
 type NewTaskPopupProps = {
     togglePopup: () => void,
@@ -26,7 +27,7 @@ function NewTaskPopup({ togglePopup }: NewTaskPopupProps) {
     
     const mutationCreate = useMutation({
         mutationFn: createTask,
-        onSuccess: () => queryClient.invalidateQueries({ queryKey: ['taskData'] }),
+        onSettled: () => queryClient.invalidateQueries({ queryKey: ['taskData'] }),
     });
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -41,8 +42,8 @@ function NewTaskPopup({ togglePopup }: NewTaskPopupProps) {
     };
 
     return (
-        <div className="popup-overlay" ref={popupRef}>
-            <div className="popup-content">
+        <div className={styles.popup} ref={popupRef}>
+            <div className={styles.popup_content}>
                 <form onSubmit={handleSubmit}>
                     <label>
                         Название:
@@ -50,7 +51,7 @@ function NewTaskPopup({ togglePopup }: NewTaskPopupProps) {
                     </label>
                     <label>
                         Описание:
-                        <input type="text" name="description" />
+                        <input type="text" name="description" autoComplete="off"  />
                     </label>
                     <button type="submit">Создать задачу</button>
                 </form>

@@ -17,8 +17,8 @@ function TaskList({isPending, error, tasks}: TaskListProps) {
     if (context === null) throw new Error('Context error');
     const { filterStatus } = context;
 
-    if (isPending) return 'Loading...'
-    if (error) return 'An error has occurred: ' + error.message
+    if (isPending) return 'Загрузка...'
+    if (error) return 'Ошибка: ' + error.message
 
     return (
         <div className={styles.task_list}>

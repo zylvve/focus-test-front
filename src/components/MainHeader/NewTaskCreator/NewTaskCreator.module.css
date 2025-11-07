@@ -1,0 +1,15 @@
+.task_creator {
+    position: relative;
+}
+
+.popup {
+    position: absolute;
+    left: 0;
+    top: 1.5rem;
+    
+    padding: 1rem;
+    width: 20rem;
+    border: 2px solid var(--border-color);
+    background-color: var(--primary-bg-color);
+
+}

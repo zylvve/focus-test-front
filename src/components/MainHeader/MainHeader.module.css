@@ -16,7 +16,6 @@
     outline: none;
     border: none;
     border-left: 2px solid var(--border-color);
-    border-right: 2px solid var(--border-color);
     cursor: pointer;
 }
 .control_container button {
@@ -24,6 +23,7 @@
     background-color: var(--primary-bg-color);
     outline: none;
     border: none;
+    border-left: 2px solid var(--border-color);
     border-right: 2px solid var(--border-color);
     cursor: pointer;
 }
